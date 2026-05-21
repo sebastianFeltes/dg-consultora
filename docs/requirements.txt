@@ -1,0 +1,15 @@
+usar los colores que estan definidos en el archivo global.css
+los colores son:
+- primary: #0D1B2A
+- secondary: #1B365D
+- white: #F2F2F2
+- gray: #8B8B8B
+
+los textos son de color blanco o el azul oscuro.
+poner los iconos que correspondan a confianza (un escudo), estrategia (una flecha en un blanco), crecimiento (un grafico de barras ascendente), compromiso (un grupo de personas)
+
+usar el png para el hero con el fondo azul.
+
+usar glasmorphismo, hacerla minimalista y profesional.
+
+usar framer motion para las animaciones.

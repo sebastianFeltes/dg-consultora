@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand primitives */
+  --color-navy: #0D1B2A;
+  --color-navy-light: #1B365D;
+  --color-silver: #8B8B8B;
+  --color-bone: #F2F2F2;
+
+  /* Surface tokens — shift per theme */
+  --color-surface: var(--theme-surface);
+  --color-surface-raised: var(--theme-surface-raised);
+  --color-surface-overlay: var(--theme-surface-overlay);
+  --color-ink: var(--theme-ink);
+  --color-ink-secondary: var(--theme-ink-secondary);
+  --color-ink-muted: var(--theme-ink-muted);
+  --color-border: var(--theme-border);
+  --color-border-soft: var(--theme-border-soft);
+
+  /* Fonts */
+  --font-heading: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --theme-surface: #F2F2F2;
+    --theme-surface-raised: #FFFFFF;
+    --theme-surface-overlay: rgba(255, 255, 255, 0.7);
+    --theme-ink: #0D1B2A;
+    --theme-ink-secondary: #1B365D;
+    --theme-ink-muted: #8B8B8B;
+    --theme-border: rgba(13, 27, 42, 0.12);
+    --theme-border-soft: rgba(13, 27, 42, 0.06);
+  }
+
+  .dark {
+    --theme-surface: #0D1B2A;
+    --theme-surface-raised: #132238;
+    --theme-surface-overlay: rgba(13, 27, 42, 0.8);
+    --theme-ink: #F2F2F2;
+    --theme-ink-secondary: #C4C8CE;
+    --theme-ink-muted: #8B8B8B;
+    --theme-border: rgba(255, 255, 255, 0.08);
+    --theme-border-soft: rgba(255, 255, 255, 0.04);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--theme-surface);
+    color: var(--theme-ink);
+    font-family: var(--font-body);
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: var(--theme-surface-overlay);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--theme-border);
+  }
+
+  .tracking-brand {
+    letter-spacing: 0.2em;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
