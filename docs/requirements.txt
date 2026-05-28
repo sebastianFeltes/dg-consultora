@@ -1,6 +1,6 @@
 usar los colores que estan definidos en el archivo global.css
 los colores son:
-- primary: #0D1B2A
+- primary-blue: #0D1B2A
 - secondary: #1B365D
 - white: #F2F2F2
 - gray: #8B8B8B

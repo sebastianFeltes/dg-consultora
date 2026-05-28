@@ -6,21 +6,24 @@ const CONTACT_INFO = [
     icon: MapPin,
     title: 'Sede Principal',
     lines: ['Av. Corporativa 1234, Piso 15', 'Distrito Financiero, Buenos Aires, Argentina'],
+    href: null,
   },
   {
     icon: Phone,
-    title: 'Atención Internacional',
-    lines: ['+54 11 4000-0000'],
+    title: 'Atención Telefónica',
+    lines: ['+54 9 221 683 3008'],
+    href: 'tel:+5492216833008',
   },
   {
     icon: Mail,
     title: 'Consultas y Asesoramiento',
-    lines: ['contacto@dgconsultora.com'],
+    lines: ['consultas@dgconsultora.com.ar'],
+    href: 'mailto:consultas@dgconsultora.com.ar',
   },
 ];
 
 const SOCIALS = [
-  { icon: MessageCircle, label: 'WhatsApp', href: '#' },
+  { icon: MessageCircle, label: 'WhatsApp', href: 'https://wa.me/542216833008' },
   { icon: Share2, label: 'Redes', href: '#' },
 ];
 
@@ -80,9 +83,18 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold mb-1">{item.title}</p>
-                      {item.lines.map((line, j) => (
-                        <p key={j} className="text-sm text-[--theme-ink-muted]">{line}</p>
-                      ))}
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="text-sm text-[--theme-ink-muted] hover:text-[--theme-ink] transition-colors duration-200 font-medium"
+                        >
+                          {item.lines[0]}
+                        </a>
+                      ) : (
+                        item.lines.map((line, j) => (
+                          <p key={j} className="text-sm text-[--theme-ink-muted]">{line}</p>
+                        ))
+                      )}
                     </div>
                   </div>
                 );
@@ -100,6 +112,8 @@ export default function Contact() {
                       key={social.label}
                       href={social.href}
                       aria-label={social.label}
+                      target={social.href.startsWith('http') ? '_blank' : undefined}
+                      rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                       className="inline-flex items-center justify-center w-10 h-10 rounded-md bg-[--theme-border-soft] text-[--theme-ink-secondary] hover:bg-[--theme-border] hover:text-[--theme-ink] active:scale-[0.96] transition-[background-color,color,transform] duration-200"
                     >
                       <Icon size={18} strokeWidth={1.5} />

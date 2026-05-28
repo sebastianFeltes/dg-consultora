@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Moon, Sun, Globe } from "lucide-react";
+import logoImg from "../../assets/dg-consultora.png";
 
 const NAV_ITEMS = [
-  { label: "Inicio", href: "#hero" },
-  { label: "Nosotros", href: "#about" },
-  { label: "Soluciones", href: "#services" },
+  { label: "Estrategia", href: "#estrategia" },
+  { label: "Procesos", href: "#procesos" },
+  { label: "Personas", href: "#personas" },
+  { label: "Transformación", href: "#transformacion" },
   { label: "Contacto", href: "#contact" },
 ];
 
@@ -39,15 +41,13 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-6 lg:px-8">
-        {/* Logo — matching branding: DG | INTEGRAL */}
-        <a href="#hero" className="flex items-center gap-3 group">
-          <span className="text-lg font-bold tracking-brand uppercase text-[--theme-ink]">
-            DG
-          </span>
-          <span className="w-px h-5 bg-[--theme-border]" aria-hidden="true" />
-          <span className="text-sm font-light tracking-brand uppercase text-[--theme-ink-secondary]">
-            Integral
-          </span>
+        {/* Logo */}
+        <a href="#hero" className="flex items-center group">
+          <img
+            src={typeof logoImg === "string" ? logoImg : logoImg.src}
+            alt="DG Integral"
+            className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+          />
         </a>
 
         {/* Desktop nav */}
@@ -110,13 +110,6 @@ export default function Navbar() {
             </AnimatePresence>
           </button>
 
-          {/* CTA — desktop only */}
-          <a
-            href="#services"
-            className="hidden md:inline-flex items-center ml-3 px-5 py-2.5 text-sm font-medium uppercase tracking-wider border border-[--theme-ink] text-[--theme-ink] hover:bg-[--theme-ink] hover:text-[--theme-surface] active:scale-[0.96] transition-[background-color,color,transform] duration-200 rounded"
-          >
-            Ver Soluciones
-          </a>
 
           {/* Mobile hamburger */}
           <button
@@ -182,13 +175,6 @@ export default function Navbar() {
                   {item.label}
                 </motion.a>
               ))}
-              <a
-                href="#services"
-                onClick={() => setMenuOpen(false)}
-                className="block mt-2 px-4 py-3 text-sm font-medium text-center uppercase tracking-wider border border-[--theme-ink] text-[--theme-ink] hover:bg-[--theme-ink] hover:text-[--theme-surface] active:scale-[0.96] transition-[background-color,color,transform] duration-200 rounded"
-              >
-                Ver Soluciones
-              </a>
             </div>
           </motion.nav>
         )}

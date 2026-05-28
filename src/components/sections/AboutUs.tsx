@@ -32,7 +32,7 @@ export default function AboutUs() {
             transition={{ duration: 0.5, ease: [0.2, 0, 0, 1] }}
             className="text-sm font-medium uppercase tracking-brand text-[--theme-ink-muted] mb-4"
           >
-            Sobre Nosotros
+            ¿Quiénes Somos?
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -50,7 +50,7 @@ export default function AboutUs() {
             transition={{ duration: 0.5, delay: 0.16, ease: [0.2, 0, 0, 1] }}
             className="text-lg text-[--theme-ink-muted] leading-relaxed"
           >
-            En <strong className="text-[--theme-ink] font-semibold">DG Integral Consultora</strong>, ayudamos a empresas a escalar operaciones, mitigar riesgos y consolidar su liderazgo en el mercado global.
+            Acompañamos organizaciones en sus procesos de crecimiento, orden y transformación. Ayudamos a empresas a escalar operaciones, mitigar riesgos y consolidar su liderazgo.
           </motion.p>
         </div>
 
