@@ -26,7 +26,7 @@ const CONTACT_INFO = [
   {
     customIcon: instagramIcon,
     label: "Instagram",
-    lines: ["@dg.consultora"],
+    lines: ["@dgintegral.ar"],
     href: "https://instagram.com/dgintegral.ar",
   },
 ];
