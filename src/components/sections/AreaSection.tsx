@@ -5,6 +5,8 @@ import SectionHeader from "../ui/SectionHeader";
 import ReferentCard from "../ui/ReferentCard";
 import FocusTag from "../ui/FocusTag";
 
+const BASE = import.meta.env.BASE_URL;
+
 interface AreaSectionProps {
   config: AreaConfig;
 }
@@ -41,7 +43,7 @@ export default function AreaSection({ config }: AreaSectionProps) {
       {/* Parallax background photograph */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed"
-        style={{ backgroundImage: `url('${bgImage}')` }}
+        style={{ backgroundImage: `url('${BASE}${bgImage.replace(/^\//, '')}')` }}
       />
 
       {/* Color overlay */}
@@ -58,7 +60,7 @@ export default function AreaSection({ config }: AreaSectionProps) {
             <ReferentCard
               name={referent.name}
               title={referent.title}
-              image={referent.image}
+              image={`${BASE}${referent.image.replace(/^\//, '')}`}
               quote={referent.quote}
             />
           </div>

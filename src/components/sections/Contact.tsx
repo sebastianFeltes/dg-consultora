@@ -1,17 +1,9 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import whatsappIcon from "../../assets/whatsapp-icon.svg";
 import instagramIcon from "../../assets/instagram-icon.svg";
 
 const CONTACT_INFO = [
-  {
-    icon: MapPin,
-    lines: [
-      "Av. Corporativa 1234, Piso 15",
-      "Distrito Financiero, Buenos Aires, Argentina",
-    ],
-    href: null,
-  },
   {
     icon: Phone,
     lines: ["+54 9 221 683 3008"],
@@ -63,11 +55,11 @@ export default function Contact() {
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="max-w-md mx-auto">
           {/* Contact info card */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: [0.2, 0, 0, 1] }}
             className="p-8 rounded-lg bg-[--theme-surface-raised] border border-[--theme-border-soft] shadow-[0_1px_2px_rgba(0,0,0,0.03)] flex flex-col justify-center"
@@ -123,27 +115,6 @@ export default function Contact() {
                 );
               })}
             </div>
-          </motion.div>
-
-          {/* Map */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: [0.2, 0, 0, 1] }}
-            className="rounded-lg overflow-hidden border border-[--theme-border-soft] shadow-[0_1px_2px_rgba(0,0,0,0.03)] min-h-[300px] sm:min-h-[400px] relative"
-          >
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105073.44366964724!2d-58.468200639943545!3d-34.61566249539304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88be5!2sBuenos%20Aires%2C%20CABA!5e0!3m2!1ses-419!2sar!4v1716301321526!5m2!1ses-419!2sar"
-              width="100%"
-              height="100%"
-              style={{ border: 0, position: "absolute", inset: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Ubicación DG Integral Consultora"
-              className="dark:invert dark:hue-rotate-180 dark:contrast-75"
-            />
           </motion.div>
         </div>
       </div>
