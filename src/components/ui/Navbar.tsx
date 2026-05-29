@@ -4,9 +4,9 @@ import { Menu, X } from "lucide-react";
 import logoImg from "../../assets/dg-consultora-no-text.png";
 
 const NAV_ITEMS = [
+  { label: "Personas", href: "#personas" },
   { label: "Estrategia", href: "#estrategia" },
   { label: "Procesos", href: "#procesos" },
-  { label: "Personas", href: "#personas" },
   { label: "Transformación", href: "#transformacion" },
   { label: "Contacto", href: "#contact" },
 ];
@@ -24,11 +24,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,box-shadow] duration-300 ${
-        scrolled
-          ? "bg-background/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)]"
-          : "bg-transparent backdrop-blur-xl"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,box-shadow] duration-300 ${scrolled
+        ? "bg-background/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)]"
+        : "bg-transparent backdrop-blur-xl"
+        }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-6 lg:px-8">
         {/* Logo */}
