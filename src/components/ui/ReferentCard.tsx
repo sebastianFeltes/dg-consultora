@@ -54,7 +54,10 @@ export default function ReferentCard({
 
           <div className="w-full h-px bg-white/10" />
 
-          <p className="text-xs italic text-brand-pearl/90 leading-relaxed text-pretty pl-4 relative before:content-['\u201c'] before:text-2xl before:font-serif before:text-white/20 before:absolute before:-top-2 before:left-0">
+          <p
+            className="text-xs italic text-brand-pearl/90 leading-relaxed text-pretty pl-4 relative"
+          >
+            <span className="absolute -top-2 left-0 text-2xl font-serif text-white/20 not-italic">"</span>
             {quote}
           </p>
         </div>
