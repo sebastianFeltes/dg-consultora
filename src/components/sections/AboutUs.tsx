@@ -21,8 +21,8 @@ const PILLARS = [
 
 export default function AboutUs() {
   return (
-    <section id="about" className="py-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="about" className="py-20 sm:py-24">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <motion.p
@@ -54,28 +54,7 @@ export default function AboutUs() {
           </motion.p>
         </div>
 
-        {/* Pillar cards */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {PILLARS.map((pillar, i) => {
-            const Icon = pillar.icon;
-            return (
-              <motion.article
-                key={pillar.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5, ease: [0.2, 0, 0, 1] }}
-                className="group p-8 rounded-lg bg-[--theme-surface-raised] border border-[--theme-border-soft] hover:border-[--theme-border] transition-[border-color,box-shadow] duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.03)] hover:shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
-              >
-                <div className="inline-flex items-center justify-center w-11 h-11 rounded-md bg-[--theme-border-soft] text-[--theme-ink-secondary] mb-5 group-hover:bg-[--theme-border] transition-[background-color] duration-300">
-                  <Icon size={20} strokeWidth={1.5} />
-                </div>
-                <h3 className="text-lg font-semibold mb-3">{pillar.title}</h3>
-                <p className="text-sm text-[--theme-ink-muted] leading-relaxed">{pillar.body}</p>
-              </motion.article>
-            );
-          })}
-        </div>
+        {/* Pillar cards temporarily hidden */}
       </div>
     </section>
   );

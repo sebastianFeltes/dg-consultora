@@ -1,47 +1,47 @@
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, MessageCircle, Share2 } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin } from "lucide-react";
+import whatsappIcon from "../../assets/whatsapp-icon.svg";
+import instagramIcon from "../../assets/instagram-icon.svg";
 
 const CONTACT_INFO = [
   {
     icon: MapPin,
-    title: 'Sede Principal',
-    lines: ['Av. Corporativa 1234, Piso 15', 'Distrito Financiero, Buenos Aires, Argentina'],
+    lines: [
+      "Av. Corporativa 1234, Piso 15",
+      "Distrito Financiero, Buenos Aires, Argentina",
+    ],
     href: null,
   },
   {
     icon: Phone,
-    title: 'Atención Telefónica',
-    lines: ['+54 9 221 683 3008'],
-    href: 'tel:+5492216833008',
+    lines: ["+54 9 221 683 3008"],
+    href: "tel:+5492216833008",
   },
   {
     icon: Mail,
-    title: 'Consultas y Asesoramiento',
-    lines: ['consultas@dgconsultora.com.ar'],
-    href: 'mailto:consultas@dgconsultora.com.ar',
+    lines: ["consultas@dgconsultora.com.ar"],
+    href: "mailto:consultas@dgconsultora.com.ar",
+  },
+  {
+    customIcon: whatsappIcon,
+    lines: ["+54 9 221 683 3008"],
+    href: "https://wa.me/5492216833008",
+  },
+  {
+    customIcon: instagramIcon,
+    lines: ["@dg.consultora"],
+    href: "https://instagram.com/dgintegral.ar",
   },
 ];
 
-const SOCIALS = [
-  { icon: MessageCircle, label: 'WhatsApp', href: 'https://wa.me/542216833008' },
-  { icon: Share2, label: 'Redes', href: '#' },
-];
-
 export default function Contact() {
+  const getIconSrc = (src: any) => (typeof src === "string" ? src : src.src);
+
   return (
-    <section id="contact" className="py-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="contact" className="py-20 sm:py-24">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="max-w-2xl mx-auto text-center mb-16">
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: [0.2, 0, 0, 1] }}
-            className="text-sm font-medium uppercase tracking-brand text-[--theme-ink-muted] mb-4"
-          >
-            Contacto
-          </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +49,7 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.08, ease: [0.2, 0, 0, 1] }}
             className="text-3xl md:text-4xl font-bold tracking-tight mb-5"
           >
-            Contacto Global
+            Contacto
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -58,7 +58,8 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.16, ease: [0.2, 0, 0, 1] }}
             className="text-lg text-[--theme-ink-muted] leading-relaxed"
           >
-            Nuestros asesores están disponibles para analizar los desafíos de su organización y diseñar soluciones a medida.
+            Nuestros asesores están disponibles para analizar los desafíos de su
+            organización y diseñar soluciones a medida.
           </motion.p>
         </div>
 
@@ -69,58 +70,58 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: [0.2, 0, 0, 1] }}
-            className="p-8 rounded-lg bg-[--theme-surface-raised] border border-[--theme-border-soft] shadow-[0_1px_2px_rgba(0,0,0,0.03)]"
+            className="p-8 rounded-lg bg-[--theme-surface-raised] border border-[--theme-border-soft] shadow-[0_1px_2px_rgba(0,0,0,0.03)] flex flex-col justify-center"
           >
-            <h3 className="text-xl font-semibold mb-8">Oficinas Centrales</h3>
-
-            <div className="space-y-8">
+            <div className="space-y-2">
               {CONTACT_INFO.map((item, i) => {
                 const Icon = item.icon;
+                const Wrapper = item.href ? "a" : "div";
+                const wrapperProps = item.href
+                  ? {
+                      href: item.href,
+                      target: item.href.startsWith("http")
+                        ? "_blank"
+                        : undefined,
+                      rel: item.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined,
+                    }
+                  : {};
+
                 return (
-                  <div key={i} className="flex gap-4">
-                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-md bg-[--theme-border-soft] text-[--theme-ink-secondary] flex-shrink-0">
-                      <Icon size={18} strokeWidth={1.5} />
+                  <Wrapper
+                    key={i}
+                    {...(wrapperProps as any)}
+                    className={`flex items-center gap-4 p-4 -mx-4 rounded-xl transition-[background-color,transform] duration-200 group ${
+                      item.href
+                        ? "cursor-pointer hover:bg-[--theme-border-soft]/50 active:scale-[0.98]"
+                        : ""
+                    }`}
+                  >
+                    <div className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-[--theme-border-soft] group-hover:bg-white dark:group-hover:bg-white/10 text-[--theme-ink-secondary] group-hover:text-[--theme-ink] transition-colors duration-200 shrink-0 overflow-hidden shadow-sm">
+                      {item.customIcon ? (
+                        <img
+                          src={getIconSrc(item.customIcon)}
+                          className="w-5 h-5 object-contain opacity-75 group-hover:opacity-100 transition-opacity duration-200"
+                          alt=""
+                        />
+                      ) : Icon ? (
+                        <Icon size={20} strokeWidth={1.5} />
+                      ) : null}
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold mb-1">{item.title}</p>
-                      {item.href ? (
-                        <a
-                          href={item.href}
-                          className="text-sm text-[--theme-ink-muted] hover:text-[--theme-ink] transition-colors duration-200 font-medium"
+                    <div className="flex flex-col">
+                      {item.lines.map((line, j) => (
+                        <span
+                          key={j}
+                          className="text-[15px] font-medium text-[--theme-ink-muted] group-hover:text-[--theme-ink] transition-colors duration-200 leading-relaxed"
                         >
-                          {item.lines[0]}
-                        </a>
-                      ) : (
-                        item.lines.map((line, j) => (
-                          <p key={j} className="text-sm text-[--theme-ink-muted]">{line}</p>
-                        ))
-                      )}
+                          {line}
+                        </span>
+                      ))}
                     </div>
-                  </div>
+                  </Wrapper>
                 );
               })}
-            </div>
-
-            {/* Social links */}
-            <div className="mt-10 pt-8 border-t border-[--theme-border-soft]">
-              <p className="text-sm font-semibold mb-4">Redes Profesionales</p>
-              <div className="flex gap-2">
-                {SOCIALS.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      aria-label={social.label}
-                      target={social.href.startsWith('http') ? '_blank' : undefined}
-                      rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="inline-flex items-center justify-center w-10 h-10 rounded-md bg-[--theme-border-soft] text-[--theme-ink-secondary] hover:bg-[--theme-border] hover:text-[--theme-ink] active:scale-[0.96] transition-[background-color,color,transform] duration-200"
-                    >
-                      <Icon size={18} strokeWidth={1.5} />
-                    </a>
-                  );
-                })}
-              </div>
             </div>
           </motion.div>
 
@@ -130,13 +131,13 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: [0.2, 0, 0, 1] }}
-            className="rounded-lg overflow-hidden border border-[--theme-border-soft] shadow-[0_1px_2px_rgba(0,0,0,0.03)] min-h-[400px] relative"
+            className="rounded-lg overflow-hidden border border-[--theme-border-soft] shadow-[0_1px_2px_rgba(0,0,0,0.03)] min-h-[300px] sm:min-h-[400px] relative"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105073.44366964724!2d-58.468200639943545!3d-34.61566249539304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88be5!2sBuenos%20Aires%2C%20CABA!5e0!3m2!1ses-419!2sar!4v1716301321526!5m2!1ses-419!2sar"
               width="100%"
               height="100%"
-              style={{ border: 0, position: 'absolute', inset: 0 }}
+              style={{ border: 0, position: "absolute", inset: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

@@ -75,11 +75,11 @@ export default function Team() {
               className="group flex flex-col rounded-xl bg-[--theme-surface-raised] border border-[--theme-border-soft] hover:border-[--theme-border] transition-[border-color,box-shadow] duration-300 shadow-[0_1px_2px_rgba(0,0,0,0.03)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)] overflow-hidden"
             >
               {/* Image Container with Bleed */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[--theme-border-soft]">
+              <div className="relative aspect-4/3 w-full overflow-hidden bg-transparent">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-[filter] duration-500"
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-1000 ease-out"
                   loading="lazy"
                 />
                 {/* 1px overlay border for image outline definition per guidelines */}

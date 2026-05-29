@@ -1,17 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/ui/Navbar';
-import Hero from '../components/sections/Hero';
-import ClientStrip from '../components/sections/ClientStrip';
-import Stats from '../components/sections/Stats';
-import AboutUs from '../components/sections/AboutUs';
-import HowWeWork from '../components/sections/HowWeWork';
-import Estrategia from '../components/sections/Estrategia';
-import Procesos from '../components/sections/Procesos';
-import Personas from '../components/sections/Personas';
-import Transformacion from '../components/sections/Transformacion';
-import Contact from '../components/sections/Contact';
-import Footer from '../components/ui/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/ui/Navbar";
+import Hero from "../components/sections/Hero";
+import ClientStrip from "../components/sections/ClientStrip";
+import Stats from "../components/sections/Stats";
+import AboutUs from "../components/sections/AboutUs";
+import HowWeWork from "../components/sections/HowWeWork";
+import Estrategia from "../components/sections/Estrategia";
+import Procesos from "../components/sections/Procesos";
+import Personas from "../components/sections/Personas";
+import Transformacion from "../components/sections/Transformacion";
+import Contact from "../components/sections/Contact";
+import Footer from "../components/ui/Footer.astro";
 ---
 
 <Layout>
@@ -19,10 +19,10 @@ import Footer from '../components/ui/Footer.astro';
 
   <main>
     <Hero client:load />
-    <ClientStrip client:visible />
-    <Stats client:visible />
+    {/* <ClientStrip client:visible /> */}
+    {/* <Stats client:visible /> */}
     <AboutUs client:visible />
-    <HowWeWork client:visible />
+    <!-- <HowWeWork client:visible /> -->
     <Estrategia client:visible />
     <Procesos client:visible />
     <Personas client:visible />
