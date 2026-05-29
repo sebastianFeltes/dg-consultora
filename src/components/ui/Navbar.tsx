@@ -6,8 +6,8 @@ import logoImg from "../../assets/dg-consultora-no-text.png";
 const NAV_ITEMS = [
   { label: "Personas", href: "#personas" },
   { label: "Estrategia", href: "#estrategia" },
-  { label: "Procesos", href: "#procesos" },
   { label: "Transformación", href: "#transformacion" },
+  { label: "Procesos", href: "#procesos" },
   { label: "Contacto", href: "#contact" },
 ];
 
