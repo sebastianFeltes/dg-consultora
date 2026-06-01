@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import whatsappIcon from "../../assets/whatsapp-icon.svg";
 import instagramIcon from "../../assets/instagram-icon.svg";
 import dgLogo from "../../assets/dg-consultora-resize.png";
@@ -20,11 +20,13 @@ const OFFICES = [
 const CONTACT_INFO = [
   {
     icon: Phone,
+    label: "Teléfono",
     lines: ["+54 9 221 683 3008"],
     href: "tel:+5492216833008",
   },
   {
     icon: Mail,
+    label: "Email",
     lines: ["consultas@dgconsultora.com.ar"],
     href: "mailto:consultas@dgconsultora.com.ar",
   },
@@ -76,7 +78,6 @@ export default function Contact() {
 
         {/* Main 3-column grid on desktop, stacked on mobile */}
         <div className="grid lg:grid-cols-3 gap-6">
-
           {/* ── Column 1: Logo — centered on mobile, left panel on desktop ── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -101,7 +102,6 @@ export default function Contact() {
             className="p-8 rounded-lg bg-[--theme-surface-raised] border border-[--theme-border-soft] shadow-[0_1px_2px_rgba(0,0,0,0.03)] flex flex-col justify-center"
           >
             <div className="space-y-1">
-
               {/* Office locations */}
               <p className="text-[11px] font-semibold uppercase tracking-wider text-[--theme-ink-muted] px-4 mb-2">
                 Nuestras sedes
@@ -144,17 +144,26 @@ export default function Contact() {
                     key={i}
                     href={item.href}
                     target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    rel={
+                      item.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     className="flex items-center gap-4 p-4 -mx-4 rounded-xl transition-[background-color,transform] duration-200 group cursor-pointer hover:bg-[--theme-border-soft]/50 active:scale-[0.98]"
                   >
                     <div className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-[--theme-border-soft] group-hover:bg-white dark:group-hover:bg-white/10 text-[--theme-ink-secondary] group-hover:text-[--theme-ink] transition-colors duration-200 shrink-0 shadow-sm">
                       <Icon size={20} strokeWidth={1.5} />
                     </div>
-                    <div className="flex flex-col">
+
+                    {/* Text */}
+                    <div className="flex flex-col min-w-0">
+                      <span className="text-[11px] font-semibold uppercase tracking-widest text-[--theme-ink-muted] mb-0.5">
+                        {item.label}
+                      </span>
                       {item.lines.map((line, j) => (
                         <span
                           key={j}
-                          className="text-[15px] font-medium text-[--theme-ink-muted] group-hover:text-[--theme-ink] transition-colors duration-200 leading-relaxed"
+                          className="text-[15px] font-medium text-[--theme-ink-muted] group-hover:text-[--theme-ink] transition-colors duration-200 leading-snug truncate"
                         >
                           {line}
                         </span>

@@ -21,6 +21,18 @@ import {
   Lightbulb,
 } from "lucide-react";
 
+// Importar imágenes desde src/assets para que Vite las procese
+// con el base path correcto en GitHub Pages
+import bgAzul from "../assets/imagen-bg-azul.jpeg";
+import bgGris from "../assets/imagen-bg-gris.jpeg";
+import bgVerde from "../assets/image-bg-verde.jpeg";
+import bgNaranja from "../assets/imagen-bg-naranja.jpeg";
+
+import fotoAndres from "../assets/foto-andres.jpeg";
+import fotoCeferino from "../assets/foto-ceferino.jpeg";
+import fotoDoris from "../assets/foto-doris.jpeg";
+import fotoDamian from "../assets/foto-damian.jpeg";
+
 export interface FocusArea {
   icon: LucideIcon;
   name: string;
@@ -53,7 +65,7 @@ export const AREAS: AreaConfig[] = [
     tagline: "CONVERTIMOS OBJETIVOS EN PLANES ACCIONABLES.",
     headline: "LAS MARCAS FUERTES NACEN DE ESTRATEGIAS CLARAS.",
     body: "ANALIZAMOS CADA PROYECTO PARA DETECTAR OPORTUNIDADES, ORDENAR OBJETIVOS Y CONSTRUIR UN CAMINO CLARO.",
-    bgImage: "/resources/imagen-bg-azul.jpeg",
+    bgImage: bgAzul.src,
     bgColor: "#1e2a3a",
     overlayColor: "#1e2a3a",
     focusAreas: [
@@ -66,7 +78,7 @@ export const AREAS: AreaConfig[] = [
     referent: {
       name: "Gallo Andrés",
       title: "Diplomado en Ecommerce y marketing digital",
-      image: "/resources/photos-team/foto-andres.jpeg",
+      image: fotoAndres.src,
       quote: "CREAMOS ESTRATEGIAS CON VISIÓN Y PROPÓSITO.",
     },
   },
@@ -76,7 +88,7 @@ export const AREAS: AreaConfig[] = [
     tagline: "ORDENAMOS Y OPTIMIZAMOS LA OPERACIÓN.",
     headline: "ORDENAMOS EL PRESENTE PARA POTENCIAR EL CRECIMIENTO.",
     body: "OPTIMIZAMOS LA FORMA DE TRABAJAR PARA MEJORAR ORGANIZACIÓN, EFICIENCIA Y RESULTADOS.",
-    bgImage: "/resources/imagen-bg-gris.jpeg",
+    bgImage: bgGris.src,
     bgColor: "#2b2b2b",
     overlayColor: "#2b2b2b",
     focusAreas: [
@@ -90,7 +102,7 @@ export const AREAS: AreaConfig[] = [
       name: "Rivero Ceferino",
       title:
         "Contador, licenciado en administración naval y especialista en sindicatura concursal",
-      image: "/resources/photos-team/foto-ceferino.jpeg",
+      image: fotoCeferino.src,
       quote: "ORGANIZACIÓN Y EFICIENCIA PARA IMPULSAR RESULTADOS.",
     },
   },
@@ -100,7 +112,7 @@ export const AREAS: AreaConfig[] = [
     tagline: "POTENCIAMOS EQUIPOS, LIDERAZGO Y CULTURA.",
     headline: "LAS EMPRESAS CRECEN CUANDO LAS PERSONAS EVOLUCIONAN.",
     body: "CREEMOS QUE EL CRECIMIENTO REAL COMIENZA PONIENDO A LAS PERSONAS EN EL CENTRO.",
-    bgImage: "/resources/image-bg-verde.jpeg",
+    bgImage: bgVerde.src,
     bgColor: "#6b8f7a",
     overlayColor: "#6b8f7a",
     focusAreas: [
@@ -113,7 +125,7 @@ export const AREAS: AreaConfig[] = [
     referent: {
       name: "Doris Vega Céspedes",
       title: "Licenciada en nutrición y antropometrista internacional ISAK",
-      image: "/resources/photos-team/foto-doris.jpeg",
+      image: fotoDoris.src,
       quote:
         "ACOMPAÑANDO PROCESOS DE SALUD CON UN ENFOQUE HUMANO, PERSONALIZADO Y SOSTENIBLE.",
     },
@@ -124,7 +136,7 @@ export const AREAS: AreaConfig[] = [
     tagline: "IMPULSAMOS CAMBIOS SOSTENIBLES Y MEDIBLES.",
     headline: "INNOVAR ES ADAPTARSE ANTES QUE EL RESTO.",
     body: "ACOMPAÑAMOS CAMBIOS SOSTENIBLES QUE GENEREN IMPACTO REAL EN CADA PROYECTO.",
-    bgImage: "/resources/imagen-bg-naranja.jpeg",
+    bgImage: bgNaranja.src,
     bgColor: "#c47a5a",
     overlayColor: "#c47a5a",
     focusAreas: [
@@ -138,7 +150,7 @@ export const AREAS: AreaConfig[] = [
       name: "D'Ambrosio Damian",
       title:
         "Diplomado universitario en gestión, diseño e innovación educativa",
-      image: "/resources/photos-team/foto-damian.jpeg",
+      image: fotoDamian.src,
       quote: "CAPACITAR ES TRANSFORMAR EL FUTURO.",
     },
   },
