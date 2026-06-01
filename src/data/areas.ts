@@ -57,7 +57,7 @@ export const AREAS: AreaConfig[] = [
     bgColor: "#1e2a3a",
     overlayColor: "#1e2a3a",
     focusAreas: [
-      { icon: Globe, name: "Lic. en Marketing" },
+      { icon: Globe, name: "Marketing" },
       { icon: MessageSquare, name: "Comunicación" },
       { icon: Target, name: "Branding" },
       { icon: Share2, name: "Redes" },
@@ -80,7 +80,7 @@ export const AREAS: AreaConfig[] = [
     bgColor: "#2b2b2b",
     overlayColor: "#2b2b2b",
     focusAreas: [
-      { icon: Calculator, name: "Contador" },
+      { icon: Calculator, name: "Contabilidad" },
       { icon: Briefcase, name: "Administración" },
       { icon: GitBranch, name: "Gestión" },
       { icon: Layers, name: "Organización interna" },
@@ -104,7 +104,7 @@ export const AREAS: AreaConfig[] = [
     bgColor: "#6b8f7a",
     overlayColor: "#6b8f7a",
     focusAreas: [
-      { icon: Apple, name: "Nutricionista" },
+      { icon: Apple, name: "Nutrición" },
       { icon: HeartPulse, name: "Bienestar" },
       { icon: Heart, name: "Salud" },
       { icon: Users, name: "Recursos humanos" },

@@ -40,7 +40,7 @@ export default function AreaSection({ config }: AreaSectionProps) {
     >
       {/* Parallax background photograph */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-scroll sm:bg-fixed"
         style={{ backgroundImage: `url('${bgImage}')` }}
       />
 
