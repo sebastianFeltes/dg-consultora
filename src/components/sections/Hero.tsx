@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <div
           className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat bg-scroll sm:bg-fixed"
-          style={{ backgroundImage: "url('/consulting-bg.jpg')" }}
+          style={{ backgroundImage: `url('${consultingBg.src}')` }}
         />
         {/* Gradient overlay — dark enough to read text */}
         <div className="absolute inset-0 bg-linear-to-r from-[#0D1B2A]/90 via-[#0D1B2A]/75 to-[#0D1B2A]/40" />
