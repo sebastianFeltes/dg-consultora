@@ -4,6 +4,7 @@ import type { AreaConfig } from "../../data/areas";
 import SectionHeader from "../ui/SectionHeader";
 import ReferentCard from "../ui/ReferentCard";
 import FocusTag from "../ui/FocusTag";
+import ParallaxBg from "../ui/ParallaxBg";
 
 interface AreaSectionProps {
   config: AreaConfig;
@@ -38,11 +39,8 @@ export default function AreaSection({ config }: AreaSectionProps) {
       className="relative min-h-screen flex items-center overflow-hidden py-20 sm:py-24 text-white"
       style={{ backgroundColor: bgColor }}
     >
-      {/* Parallax background photograph */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-scroll sm:bg-fixed"
-        style={{ backgroundImage: `url('${bgImage}')` }}
-      />
+      {/* Cross-browser parallax background photograph */}
+      <ParallaxBg src={bgImage} speed={0.25} />
 
       {/* Color overlay */}
       <div

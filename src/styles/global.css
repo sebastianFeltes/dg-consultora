@@ -59,12 +59,14 @@
   }
 
   html {
+    overflow-x: hidden;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
+    overflow-x: hidden;
     margin: 0;
     background-color: var(--theme-surface);
     color: var(--theme-ink);

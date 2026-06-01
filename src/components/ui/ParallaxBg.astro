@@ -1,0 +1,75 @@
+---
+/**
+ * ParallaxBg.astro
+ *
+ * Cross-browser parallax background that works on iOS, Android and Desktop.
+ * 
+ * Instead of `background-attachment: fixed` (broken on iOS Safari), this uses
+ * a JS scroll handler that translates the image element. The image is sized
+ * larger than its container (`scale(1.3)`) so there is always room to translate
+ * without revealing empty space.
+ *
+ * Props:
+ *   src    - URL of the background image (already-resolved asset src)
+ *   speed  - parallax strength, 0 = no parallax, 0.3 = subtle (default)
+ */
+
+interface Props {
+  src: string;
+  speed?: number;
+  id: string;
+}
+
+const { src, speed = 0.25, id } = Astro.props;
+const uid = `parallax-${id}`;
+---
+
+<div
+  class="absolute inset-0 z-0 overflow-hidden"
+  aria-hidden="true"
+>
+  <img
+    id={uid}
+    src={src}
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover object-center will-change-transform"
+    style="transform: scale(1.3) translateY(0px);"
+    loading="eager"
+    fetchpriority="high"
+  />
+</div>
+
+<script define:vars={{ uid, speed }}>
+  (function () {
+    const img = document.getElementById(uid);
+    if (!img) return;
+
+    const section = img.closest('section');
+    if (!section) return;
+
+    let ticking = false;
+
+    function update() {
+      const rect = section.getBoundingClientRect();
+      // How far the section's center is from the viewport center
+      const viewH = window.innerHeight;
+      const sectionCenter = rect.top + rect.height / 2;
+      const viewCenter = viewH / 2;
+      const offset = (sectionCenter - viewCenter) * speed;
+
+      img.style.transform = `scale(1.3) translateY(${offset}px)`;
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+
+    // Initial position
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script>

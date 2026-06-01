@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import consultingBg from "../../assets/consulting-bg.jpg";
+import ParallaxBg from "../ui/ParallaxBg";
 
 export default function Hero() {
   return (
@@ -7,15 +8,10 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Background photograph */}
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat bg-scroll sm:bg-fixed"
-          style={{ backgroundImage: `url('${consultingBg.src}')` }}
-        />
-        {/* Gradient overlay — dark enough to read text */}
-        <div className="absolute inset-0 bg-linear-to-r from-[#0D1B2A]/90 via-[#0D1B2A]/75 to-[#0D1B2A]/40" />
-      </div>
+      {/* Cross-browser parallax background photograph */}
+      <ParallaxBg src={consultingBg.src} speed={0.2} />
+      {/* Gradient overlay — dark enough to read text */}
+      <div className="absolute inset-0 z-0 bg-linear-to-r from-[#0D1B2A]/90 via-[#0D1B2A]/75 to-[#0D1B2A]/40" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full py-28 sm:py-32 md:py-40">
         <div className="max-w-2xl">
