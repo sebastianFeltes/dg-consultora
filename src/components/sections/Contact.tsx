@@ -27,8 +27,8 @@ const CONTACT_INFO = [
   {
     icon: Mail,
     label: "Email",
-    lines: ["consultas@dgconsultora.com.ar"],
-    href: "mailto:contacto@dgconsultora.com.ar",
+    lines: ["administracion@dgconsultora.com.ar"],
+    href: "mailto:administracion@dgconsultora.com.ar",
   },
 ];
 
