@@ -28,13 +28,16 @@ export default function ReferentCard({
     >
       {/* ── MOBILE layout: image top + info below ── */}
       <div className="sm:hidden rounded-[24px] overflow-hidden border border-white/10 shadow-2xl">
-        {/* Photo */}
-        <div className="aspect-[4/3] w-full overflow-hidden">
+        {/* Photo — aspect-ratio wrapper reserves space before image loads */}
+        <div class="aspect-[4/3] w-full overflow-hidden bg-[--theme-border-soft]">
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-cover object-top"
+            width="400"
+            height="300"
+            class="w-full h-full object-cover object-top"
             loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -63,12 +66,15 @@ export default function ReferentCard({
 
       {/* ── DESKTOP layout: full-bleed photo with glass overlay ── */}
       <div className="hidden sm:block relative aspect-3/4 rounded-[28px] overflow-hidden shadow-2xl group border border-white/10">
-        {/* Full-bleed photo */}
+        {/* Full-bleed photo — the parent has aspect-ratio so layout is reserved */}
         <img
           src={image}
           alt={name}
+          width="400"
+          height="533"
           className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-1000 ease-out"
           loading="lazy"
+          decoding="async"
         />
 
         {/* Gradient overlay for text legibility */}

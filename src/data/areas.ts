@@ -23,15 +23,15 @@ import {
 
 // Importar imágenes desde src/assets para que Vite las procese
 // con el base path correcto en GitHub Pages
-import bgAzul from "../assets/imagen-bg-azul.jpeg";
-import bgGris from "../assets/imagen-bg-gris.jpeg";
-import bgVerde from "../assets/image-bg-verde.jpeg";
-import bgNaranja from "../assets/imagen-bg-naranja.jpeg";
+import bgAzul from "../assets/compressed/imagen-bg-azul.webp";
+import bgGris from "../assets/compressed/imagen-bg-gris.webp";
+import bgVerde from "../assets/compressed/image-bg-verde.webp";
+import bgNaranja from "../assets/compressed/imagen-bg-naranja.webp";
 
-import fotoAndres from "../assets/foto-andres.jpeg";
-import fotoCeferino from "../assets/foto-ceferino.jpeg";
-import fotoDoris from "../assets/foto-doris.jpeg";
-import fotoDamian from "../assets/foto-damian.jpeg";
+import fotoAndres from "../assets/compressed/foto-andres.webp";
+import fotoCeferino from "../assets/compressed/foto-ceferino.webp";
+import fotoDoris from "../assets/compressed/foto-doris.webp";
+import fotoDamian from "../assets/compressed/foto-damian.webp";
 
 export interface FocusArea {
   icon: LucideIcon;

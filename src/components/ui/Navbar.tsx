@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logoImg from "../../assets/dg-consultora-no-text.png";
@@ -13,17 +13,33 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  // Initialize synchronously from window.scrollY so there is no flash when
+  // the page is refreshed while scrolled (the header would jump from
+  // transparent → with-background on the first effect tick otherwise).
+  const [scrolled, setScrolled] = useState(() =>
+    typeof window !== "undefined" ? window.scrollY > 32 : false
+  );
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // Suppress the CSS transition for one frame so the initial state
+    // (already correct from the lazy initializer above) doesn't animate in.
+    const el = headerRef.current;
+    if (el) {
+      el.style.transition = "none";
+      requestAnimationFrame(() => {
+        el.style.transition = "";
+      });
+    }
+
     const onScroll = () => setScrolled(window.scrollY > 32);
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <header
+      ref={headerRef as React.RefObject<HTMLElement>}
       className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,box-shadow] duration-300 ${scrolled
         ? "bg-background/95 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)]"
         : "bg-transparent backdrop-blur-xl"

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import consultingBg from "../../assets/consulting-bg.jpg";
+import consultingBg from "../../assets/compressed/consulting-bg.webp";
 import ParallaxBg from "../ui/ParallaxBg";
 
 export default function Hero() {
@@ -9,6 +9,11 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Cross-browser parallax background photograph */}
+      {/*
+       * IMPORTANT: keep the initial style as scale(1.3) so the SSR/hydration
+       * first paint matches what the JS scroll handler will apply, preventing
+       * a visible "jump" on load.
+       */}
       <ParallaxBg src={consultingBg.src} speed={0.2} />
       {/* Gradient overlay — dark enough to read text */}
       <div className="absolute inset-0 z-0 bg-linear-to-r from-[#0D1B2A]/90 via-[#0D1B2A]/75 to-[#0D1B2A]/40" />

@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import ogImageSrc from "../assets/dg-consultora-no-text.png";
+import heroBg from "../assets/compressed/consulting-bg.webp";
 
 interface Props {
   title?: string;
@@ -32,8 +33,7 @@ const siteName = "DG Integral Consultoría";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Favicon -->
-    <!-- <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/favicon.svg`} /> -->
-    <link rel="icon" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/favicon.ico`} />
+    <link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/favicon.ico`} />
 
     <meta name="generator" content={Astro.generator} />
 
@@ -61,12 +61,20 @@ const siteName = "DG Integral Consultoría";
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:image:alt" content={siteName} />
 
-    <!-- Fonts -->
+    <!-- Fonts: display=swap + size-adjust fallback in global.css prevents FOUT CLS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
+    />
+
+    <!-- Preload hero background — browser fetches it before React hydrates -->
+    <link
+      rel="preload"
+      as="image"
+      href={heroBg.src}
+      fetchpriority="high"
     />
 
     <script is:inline>

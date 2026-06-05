@@ -77,7 +77,7 @@ export default function Contact() {
         </div>
 
         {/* Main 2-column grid on desktop, stacked on mobile */}
-        <div className="grid lg:grid-cols-2 gap-6">
+        <div className=" flex flex-col lg:grid lg:grid-cols-2 gap-6">
           {/* ── Column 1: Logo — centered on mobile, left panel on desktop ── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

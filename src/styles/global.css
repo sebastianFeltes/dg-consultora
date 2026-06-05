@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+/*
+ * Local Inter-fallback font with size-adjust.
+ * Matches Inter's average character width so the system sans-serif renders
+ * at the same glyph metrics. When Inter loads, there is no text reflow → no CLS.
+ * Values calibrated against Inter v4 (ascent 90.1%, descent 22.3%, line-gap 0).
+ */
+@font-face {
+  font-family: "Inter-fallback";
+  src: local("Arial"), local("Helvetica Neue"), local("sans-serif");
+  size-adjust: 107%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
 @theme {
   /* Brand primitives */
   --color-navy: #0D1B2A;
@@ -24,9 +39,9 @@
   --color-border: var(--theme-border);
   --color-border-soft: var(--theme-border-soft);
 
-  /* Fonts */
-  --font-heading: "Inter", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  /* Fonts — Inter-fallback has size-adjust to prevent FOUT text reflow */
+  --font-heading: "Inter", "Inter-fallback", system-ui, sans-serif;
+  --font-body: "Inter", "Inter-fallback", system-ui, sans-serif;
 }
 
 @layer base {
